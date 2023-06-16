@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Banner from './componentes/Banner/Banner';
 import Formulario from './componentes/Formulario';
 import Time from './componentes/Time';
+import { IColaborador } from './compatilhado/interfaces/IColaborador';
 
 function App() {
 
@@ -43,17 +44,18 @@ function App() {
     },
   ]
 
-  const [colaboradores, setColaboradores] = useState([])
+  const [colaboradores, setColaboradores] = useState<IColaborador[]>([])
 
-  const aoNovoColaboradorAdicionado = (colaborador) => {
+  const aoNovoColaboradorAdicionado = (colaborador: IColaborador) => {
     setColaboradores([...colaboradores, colaborador]) //é preciso espalhar os antigos colaboradores que ja estavam no array usanso o "...colaboradores" e então adicionar o novo com colaborador
   }
 
 
   return (
     <div className="App">
-      <Banner />
+      <Banner url='/imagens/banner.png' />
       <Formulario times={times.map(time => time.nome)} aoColaboradorCadastrado={colaborador => aoNovoColaboradorAdicionado(colaborador)}/>
+      
       {times.map(time => <Time 
         key={time.nome} nome={time.nome} 
         corPrimaria={time.corPrimaria} 

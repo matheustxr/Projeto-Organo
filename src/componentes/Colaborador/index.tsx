@@ -1,6 +1,11 @@
 import './colaborador.css'
+import { IColaborador } from '../../compatilhado/interfaces/IColaborador';
 
-export default function Colaborador({nome, imagem, cargo, corDeFundo}){ //forma para desestruturar as props 
+interface ColoboradorProps extends IColaborador {
+    corDeFundo: string;
+}
+
+export default function Colaborador({nome, imagem, cargo, corDeFundo}:ColoboradorProps){ //forma para desestruturar as props 
     return (
         <div className='colaborador'>
             <div className='cabecalho' style={{backgroundColor: corDeFundo}}>
