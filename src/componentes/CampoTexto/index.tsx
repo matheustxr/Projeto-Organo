@@ -11,7 +11,7 @@ interface CampoTextoProps {
 
 function CampoTexto( { aoAlterado, placeholder, label, valor, obrigatorio = false} :CampoTextoProps) {
 
-    const placeHolderModificada = `${placeholder}...`
+    //const placeHolderModificada = `${placeholder}...`
 
     const aoDigitado = (event: React.ChangeEvent<HTMLInputElement>) => {
         aoAlterado(event.target.value)
